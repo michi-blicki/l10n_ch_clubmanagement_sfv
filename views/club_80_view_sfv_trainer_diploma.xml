@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="sfv_trainer_diploma_form_view" model="ir.ui.view">
+            <field name="name">sfv.trainer.diploma.form.view</field>
+            <field name="model">sfv.trainer.diploma</field>
+            <field name="arch" type="xml">
+                <form string="SFV Trainer Diploma">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                                <span class="ml-2" invisible="active == True">
+                                    (<span style="color:red;">Archived</span>)
+                                </span>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="alt_names" />
+                        </group>
+                        <group>
+                            <field name="category" />
+                            <field name="sequence" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sfv_trainer_diploma_list_view" model="ir.ui.view">
+            <field name="name">sfv.trainer.diploma.list.view</field>
+            <field name="model">sfv.trainer.diploma</field>
+            <field name="arch" type="xml">
+                <list string="SFV Trainer Diploma">
+                    <field name="active" />
+                    <field name="name" />
+                    <field name="category" />
+                    <field name="code" />
+                    <field name="sequence" />
+                </list>
+            </field>
+        </record>
+
+        <record id="sfv_trainer_diploma_kanban_view" model="ir.ui.view">
+            <field name="name">sfv.trainer.diploma.kanban.view</field>
+            <field name="model">sfv.trainer.diploma</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="category" class="o_kanban_small_column" string="SFV Trainer Diploma">
+                    <templates>
+                        <field name="category"/>
+                        <field name="name"/>
+                        <field name="alt_names"/>
+                        <field name="code"/>
+                        <field name="sequence"/>
+                        <t t-name="card">
+                            <div class="oe_kanban_global_tab oe_kanban_global_click o_kanban_record">
+                                <div class="oe_kanban_global_click o_kanban_record">
+                                    <div class="oe_kanban_header" style="display: flex; justify-content: space-between;">
+                                        <strong><field name="name" /></strong>
+                                        <field name="active" />
+                                    </div>
+                                    <hr style="margin:4px 0;"/>
+                                    <div t-if="record.alt_names.raw_value">
+                                        <div class="mt-1 small text-muted">
+                                            <label for="alt_names" string="Alt Names">Alt Names</label>
+                                            |
+                                            <field name="alt_names" />
+                                        </div>
+                                    </div>
+                                    <div class="mt-1 small text-muted">
+                                        <label for="code" string="Code">Code</label>
+                                        |
+                                        <field name="code" />
+                                    </div>
+                                    <div class="mt-1 small text-muted">
+                                        <label for="sequence" string="Sequence">Sequence</label>
+                                        |
+                                        <field name="sequence" />
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="sfv_trainer_diploma_search_view" model="ir.ui.view">
+            <field name="name">sfv.trainer.diploma.search</field>
+            <field name="model">sfv.trainer.diploma</field>
+            <field name="arch" type="xml">
+                <search string="Search Diplomas">
+                    <field name="name" string="Diploma Name"/>
+                    <field name="alt_names" string="Alternative Names"/>
+                    <field name="code" string="Code"/>
+                    <filter name="category_filter" string="Category" context="{'group_by':'category'}"/>
+
+                    <group expand="0" string="Filters">
+                        <filter name="active" string="Active" domain="[('active','=',True)]" help="Show active diplomas"/>
+                        <filter name="inactive" string="Inactive" domain="[('active','=',False)]" help="Show inactive diplomas"/>
+                        <separator/>
+                        <filter name="all" string="All" domain="[]" help="Show all diplomas"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="sfv_trainer_diploma_list_action" model="ir.actions.act_window">
+            <field name="name">SFV Trainer Diploma</field>
+            <field name="res_model">sfv.trainer.diploma</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="view_ids" eval="[
+                (5,0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('sfv_trainer_diploma_kanban_view')}),
+                (0, 0, {'view_mode': 'list', 'view_id': ref('sfv_trainer_diploma_list_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sfv_trainer_diploma_form_view')}),
+            ]"/>
+            <field name="domain">[]</field>
+            <field name="search_view_id" ref="sfv_trainer_diploma_search_view"/>
+            <field name="help" type="html">
+                <p>
+                    <strong>SFV - Official List of Trainer Diploma</strong>
+                </p>
+                <p>
+                    The official list is available on https://football.ch.
+                </p>
+            </field>
+        </record>
+    
+        <menuitem
+            id="sfv_trainer_diploma_list_menu"
+            name="SFV Trainer Diploma"
+            action="sfv_trainer_diploma_list_action"
+            groups="clubmanagement.group_clubmanagement_administrator"
+            parent="clubmanagement.club_administration_root_menu"
+            sequence="800"/>
+    
+    </data>
+    
+
+</odoo>
