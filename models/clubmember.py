@@ -7,7 +7,7 @@ class ClubMember(models.Model):
 
     sfv_license             = fields.Integer(string="SFV License", required=False)
     sfv_qualified_from      = fields.Date(string="SFV Qualified From", required=False)
-    sfv_qualified_from      = fields.Date(string="SFV Qualified Until", required=False)
+    sfv_qualified_until     = fields.Date(string="SFV Qualified Until", required=False)
     sfv_request_submit_date = fields.Date(string="SFV Request Submit Date", required=False)
     sfv_valid_license       = fields.Boolean(string="SFV Valid License", readonly=True, compute="_compute_sfv_valid_license", required=True, default=False)
 

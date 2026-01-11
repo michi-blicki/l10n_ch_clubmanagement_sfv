@@ -8,7 +8,7 @@
             <field name="alt_names">SFV C-Diplom, UEFA C-Basic</field>
             <field name="code">SFV_C_BASIC</field>
             <field name="category">adult</field>
-            <field name="sequnece" eval="10" />
+            <field name="sequence" eval="10" />
         </record>
 
         <record id="sfv_trainer_diploma_uefa_c" model="sfv.trainer.diploma">
@@ -16,7 +16,7 @@
             <field name="alt_names">SFV C-Pro Diplom, UEFA C-PRO</field>
             <field name="code">UEFA_C</field>
             <field name="category">adult</field>
-            <field name="sequnece" eval="20" />
+            <field name="sequence" eval="20" />
         </record>
 
         <record id="sfv_trainer_diploma_uefa_b" model="sfv.trainer.diploma">
@@ -24,35 +24,35 @@
             <field name="alt_names">SFV B-Diplom</field>
             <field name="code">UEFA_B</field>
             <field name="category">adult</field>
-            <field name="sequnece" eval="30" />
+            <field name="sequence" eval="30" />
         </record>
 
         <record id="sfv_trainer_diploma_uefa_b_y" model="sfv.trainer.diploma">
             <field name="name">UEFA B-Youth</field>
             <field name="code">UEFA_B_Y</field>
             <field name="category">adult</field>
-            <field name="sequnece" eval="35" />
+            <field name="sequence" eval="35" />
         </record>
 
         <record id="sfv_trainer_diploma_uefa_a" model="sfv.trainer.diploma">
             <field name="name">UEFA A</field>
             <field name="code">UEFA_A</field>
             <field name="category">adult</field>
-            <field name="sequnece" eval="40" />
+            <field name="sequence" eval="40" />
         </record>
 
         <record id="sfv_trainer_diploma_uefa_a_y" model="sfv.trainer.diploma">
             <field name="name">UEFA A-Youth</field>
             <field name="code">UEFA_A_Y</field>
             <field name="category">adult</field>
-            <field name="sequnece" eval="45" />
+            <field name="sequence" eval="45" />
         </record>
 
         <record id="sfv_trainer_diploma_uefa_pro" model="sfv.trainer.diploma">
             <field name="name">UEFA PRO</field>
             <field name="code">UEFA_PRO</field>
             <field name="category">adult</field>
-            <field name="sequnece" eval="100" />
+            <field name="sequence" eval="100" />
         </record>
     
         <!-- Child Football -->
@@ -103,7 +103,7 @@
             <field name="name">Goal Keeper Trainer - Level 2 Youth</field>
             <field name="code">SFV_KEEPER_N2Y</field>
             <field name="category">goal</field>
-            <field name="sequnece" eval="30" />
+            <field name="sequence" eval="30" />
         </record>
 
         <record id="sfv_trainer_diploma_keeper_uefa_a" model="sfv.trainer.diploma">

@@ -9,15 +9,15 @@
             <field name="model">club.member</field>
             <field name="arch" type="xml">
                 
-                <xpath expr="//div[@class='oe_title']" position="after">
-                    <div invisible="sfv_valid_license" class="alert alert-warning o_sfv_license_warning">
+                <xpath expr="//div[hasclass('oe_title')]" position="after">
+                    <div invisible="sfv_valid_license" class="alert alert-warning o_sfv_license_warning" role="status">
                         <span>
-                            <i class="fa fa-exclamation-circle"></i> <strong>No valid SFV player license!</strong>
+                            <i class="fa fa-exclamation-circle" title="Warning"></i> <strong>No valid SFV player license!</strong>
                         </span>
                     </div>
                 </xpath>
 
-                <xpath expr="//notebook/page[@string='Club Member']" position="after">
+                <xpath expr="//notebook/page[@name='page_club_member']" position="after">
                     <page string="SFV">
                         <group string="SFV Player License">
                             <field name="sfv_license" />

@@ -3,6 +3,8 @@ from odoo import models, fields, api
 import logging
 _logger = logging.getLogger(__name__)
 
+from datetime import date
+
 class ClubMemberTrainerDiploma(models.Model):
     _name = 'club.member.trainer.diploma'
     _description = 'Trainer Diplomas held by Club Member'
@@ -22,7 +24,7 @@ class ClubMemberTrainerDiploma(models.Model):
         for diploma in self:
             base_date = diploma.last_refresh_date or diploma.acquisition_date
             if not base_date:
-                rec.expiry_date = False
+                diploma.expiry_date = False
                 continue
 
             year_plus_two = base_date.year + 2
@@ -32,4 +34,4 @@ class ClubMemberTrainerDiploma(models.Model):
     def _compute_valid(self):
         today = fields.Date.today()
         for diploma in self:
-            rec.valid = bool(rec.expiry_date and rec.expiry_date >= today)
+            diploma.valid = bool(diploma.expiry_date and diploma.expiry_date >= today)

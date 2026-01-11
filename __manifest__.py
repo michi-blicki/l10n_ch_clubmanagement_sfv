@@ -22,7 +22,7 @@ Please note, that the Addon l10n_ch_clubmanagement is required, too.
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Association',
-    'version': '18.0.0.3.0',
+    'version': '18.0.0.4.0',
     'application': False,
     'auto_install': False,
     'installable': True,
@@ -37,8 +37,10 @@ Please note, that the Addon l10n_ch_clubmanagement is required, too.
     'data': [
         'security/ir.model.access.csv',
         'views/club_20_view_member_form.xml',
+        'views/club_50_view_team.xml',
         'views/club_80_view_club.xml',
         'views/club_80_view_sfv_trainer_diploma.xml',
+        'data/sfv_trainer_diploma.xml',
     ],
 
     'assets': {

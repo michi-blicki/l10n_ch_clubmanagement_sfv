@@ -18,6 +18,7 @@ class SFVTrainerDiploma(models.Model):
                     ('athletic', 'Athletic'),
                     ('futsal', 'Futsal')
                 ])
+                
     sequence    = fields.Integer(default=10)
     active      = fields.Boolean(default=True)
 

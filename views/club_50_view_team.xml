@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="club_team_form_view_inherit_l10n_ch_sfv" model="ir.ui.view">
+            <field name="name">club.team.form.inherit.l10n_ch.sfv</field>
+            <field name="inherit_id" ref="clubmanagement.club_team_form_view" />
+            <field name="model">club.team</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='active']" position="after">
+                    
+                    <field name="sfv_team_id" />
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+    
+
+</odoo>
